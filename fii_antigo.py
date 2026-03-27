@@ -193,6 +193,7 @@ Usado por investidores que querem mais controle e menos achismo
 </div>
 """, unsafe_allow_html=True)
 
+st.write('')
 st.divider()
 
 # ==========================
@@ -364,7 +365,7 @@ st.markdown("""
 R$49,90
 </p>
 
-<p class="price">R$19,90<span style="font-size:16px;">/mês</span></p>
+<p class="price">R$19,90<span style="font-size:18px;">/mês</span></p>
 </div>
 """, unsafe_allow_html=True)
 
