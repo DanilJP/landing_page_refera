@@ -179,6 +179,7 @@ with col1:
     </a>
     """, unsafe_allow_html=True)
 
+    st.write('')
 with col2:
     st.markdown('<div class="image-card">', unsafe_allow_html=True)
     st.image("fii.png", use_container_width=True)
