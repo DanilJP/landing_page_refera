@@ -111,7 +111,7 @@ body {
 .price-card {
     background: rgba(255,255,255,0.04);
     border-radius: 25px;
-    padding: 50px;
+    padding: 20px;
     text-align: center;
     border: 1px solid rgba(255,255,255,0.1);
 }
@@ -161,8 +161,23 @@ with col1:
     """, unsafe_allow_html=True)
 
     st.write('')
-    if st.button("🚀 Quero entender melhor o Refera", use_container_width=True):
-        st.markdown(f'<meta http-equiv="refresh" content="0; url={'https://wa.me/5513981832920?text=Fala,%20vi%20o%20Refera%20e%20quero%20entender%20melhor%20como%20funciona'}">', unsafe_allow_html=True)
+
+    st.markdown(f"""
+    <a href="https://wa.me/5513981832920?text=Fala,%20vi%20o%20Refera%20e%20quero%20saber%20mais%20sobre%20como%20funciona" target="_blank">
+        <button style="
+            width:100%;
+            height:3.2em;
+            border-radius:999px;
+            background: linear-gradient(90deg, #6366f1, #4f46e5);
+            color:white;
+            font-weight:600;
+            border:none;
+            cursor:pointer;
+        ">
+            🚀 Quero entender melhor o Refera
+        </button>
+    </a>
+    """, unsafe_allow_html=True)
 
 with col2:
     st.markdown('<div class="image-card">', unsafe_allow_html=True)
@@ -340,10 +355,9 @@ st.divider()
 # PREÇO
 # ==========================
 st.markdown('<div class="section-title center-text">Comece agora</div>', unsafe_allow_html=True)
-
+st.write('')
 st.markdown("""
 <div class="price-card">
-
 <p style="color:#94a3b8;">Plano de lançamento</p>
 
 <p style="text-decoration: line-through; color:#64748b;">
@@ -351,14 +365,26 @@ R$49,90
 </p>
 
 <p class="price">R$19,90<span style="font-size:16px;">/mês</span></p>
-
 </div>
 """, unsafe_allow_html=True)
 
 st.write('')
-if st.button("💰 Quero acesso ao Refera", use_container_width=True):
-    st.markdown(f'<meta http-equiv="refresh" content="0; url={'https://wa.me/5513981832920?text=Quero%20acesso%20ao%20Refera%20e%20entender%20como%20funciona%20na%20pr%C3%A1tica'}">', unsafe_allow_html=True)
-
+st.markdown(f"""
+<a href="https://wa.me/5513981832920?text=Fala,%20vi%20o%20Refera%20e%20quero%20ter%20acesso%20ao%20Refera" target="_blank">
+    <button style="
+        width:100%;
+        height:3.2em;
+        border-radius:999px;
+        background: linear-gradient(90deg, #6366f1, #4f46e5);
+        color:white;
+        font-weight:600;
+        border:none;
+        cursor:pointer;
+    ">
+        💰 Quero acesso ao Refera
+    </button>
+</a>
+""", unsafe_allow_html=True)
 st.divider()
 
 # ==========================
@@ -371,10 +397,10 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-if st.button("🚀 Quero entender melhor o Refera", use_container_width=True):
-    st.markdown(f'<meta http-equiv="refresh" content="0; url={'https://wa.me/5513981832920?text=Fala,%20vi%20o%20Refera%20e%20quero%20entender%20melhor%20como%20funciona'}">', unsafe_allow_html=True)
-
+st.write('')
 # ==========================
 # DISCLAIMER
 # ==========================
-st.caption("O Refera não faz recomendação de investimento.")
+st.caption(
+    "O Refera não faz recomendação de investimento. Considere buscar um consultor financeiro antes de decidir.",
+)
