@@ -1,13 +1,6 @@
 import streamlit as st
 
-# ==========================
-# CONFIG
-# ==========================
-st.set_page_config(
-    page_title="Refera",
-    layout="wide",
-    page_icon="📊"
-)
+st.set_page_config(page_title="Refera", layout="wide", page_icon="📊")
 
 HOTMART_LINK = "https://SEU_LINK_HOTMART_AQUI"
 
@@ -23,15 +16,17 @@ body {
 }
 
 /* HERO */
-.hero {
-    padding: 80px 0;
-}
-
 .hero-title {
-    font-size: 56px;
+    font-size: 48px;
     font-weight: 800;
     line-height: 1.05;
     color: #f8fafc;
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 36px;
+    }
 }
 
 .hero-gradient {
@@ -43,7 +38,6 @@ body {
 .subtitle {
     color: #94a3b8;
     font-size: 18px;
-    margin-top: 20px;
 }
 
 /* BOTÃO */
@@ -54,49 +48,72 @@ body {
     height: 3.2em;
     font-weight: 600;
     border: none;
-    transition: 0.3s;
 }
 .stButton>button:hover {
     transform: scale(1.05);
     box-shadow: 0 0 40px rgba(99,102,241,0.5);
 }
 
-/* GLASS CARD */
+/* CARD */
 .glass {
-    background: rgba(255,255,255,0.03);
-    backdrop-filter: blur(20px);
-    border-radius: 20px;
-    padding: 30px;
-    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.025);
+    backdrop-filter: blur(12px);
+    border-radius: 14px;
+    padding: 14px 16px;
+    border: 1px solid rgba(255,255,255,0.06);
+    display: inline-block;
+    width: 100%;
 }
 
 /* GRID */
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 14px;
+    margin-top: 20px;
 }
 
-/* TEXTO */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* IMAGE */
+.image-card {
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    transition: 0.4s;
+}
+
+.image-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+}
+
+/* TITLES */
 .section-title {
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 700;
     color: #f1f5f9;
+    letter-spacing: -0.5px;
 }
 
 .section-sub {
     color: #94a3b8;
-    margin-top: 10px;
+    font-size: 15px;
+    margin-top: 6px;
 }
 
 /* PRICE */
 .price-card {
-    background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    background: rgba(255,255,255,0.04);
     border-radius: 25px;
     padding: 50px;
     text-align: center;
     border: 1px solid rgba(255,255,255,0.1);
-    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
 }
 
 .price {
@@ -105,79 +122,24 @@ body {
     color: #f8fafc;
 }
 
-/* HOVER IMAGEM */
-.img-hover {
-    transition: 0.4s;
-}
-.img-hover:hover {
-    transform: scale(1.04);
+/* ANIMAÇÃO */
+.fade-in {
+    animation: fadeInUp 0.6s ease forwards;
 }
 
-.image-card {
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-    transition: 0.4s;
-}
-
-.image-card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 40px 100px rgba(0,0,0,0.8);
-}
-            
-.social-proof {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
-
-.avatars {
-    display: flex;
-}
-
-.avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid #020617;
-    margin-left: -10px;
-    background-size: cover;
-    background-position: center;
-}
-
-.social-text {
-    color: #94a3b8;
-    font-size: 14px;
-}
-
-.social-box {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    padding: 15px 25px;
-    border-radius: 999px;
-    backdrop-filter: blur(10px);
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 </style>
 """, unsafe_allow_html=True)
-
-def section_title(title, subtitle=None):
-    st.markdown(f"""
-    <div style="margin-top:60px; margin-bottom:20px;">
-        <h2 style="
-            font-size:32px;
-            font-weight:700;
-            margin-bottom:5px;
-        ">
-            {title}
-        </h2>
-        {f'<p style="color:#aaa; font-size:16px;">{subtitle}</p>' if subtitle else ''}
-    </div>
-    """, unsafe_allow_html=True)
 
 # ==========================
 # HERO
@@ -185,122 +147,75 @@ def section_title(title, subtitle=None):
 col1, col2 = st.columns([1.2,1])
 
 with col1:
-    st.title("📊 Refera")
-    st.subheader("Pare de decidir no escuro em FIIs")
-
     st.markdown("""
-    <div class="hero">
-
     <div class="hero-title">
     Pare de investir no escuro.<br>
     <span class="hero-gradient">Tenha clareza real</span>
     </div>
+    """, unsafe_allow_html=True)
 
+    st.markdown("""
     <div class="subtitle">
     Um sistema que transforma dados e relatórios em decisões claras de risco, qualidade e estabilidade.
     </div>
-
-    </div>
     """, unsafe_allow_html=True)
 
+    st.write('')
     if st.button("🚀 Começar agora", use_container_width=True):
         st.markdown(f'<meta http-equiv="refresh" content="0; url={HOTMART_LINK}">', unsafe_allow_html=True)
 
 with col2:
-    st.markdown('<div class="img-hover">', unsafe_allow_html=True)
+    st.markdown('<div class="image-card">', unsafe_allow_html=True)
     st.image("fii.png", use_container_width=True)
     st.markdown('</div>', unsafe_allow_html=True)
+
+# ==========================
+# SOCIAL PROOF
+# ==========================
+st.markdown("""
+<div style="text-align:center; margin-top:40px; color:#64748b;">
+Usado por investidores que querem mais controle e menos achismo
+</div>
+""", unsafe_allow_html=True)
 
 st.divider()
 
 # ==========================
 # PROBLEMA
 # ==========================
-section_title(
-    "Você não está vendo o risco real",
-    "A maioria dos investidores só percebe quando já é tarde"
-)
-col1, col2 = st.columns(2)
+st.markdown('<div class="section-title">O problema</div>', unsafe_allow_html=True)
 
-with col1:
-    st.markdown("""
-    <div class="box">
+st.markdown("""
+<div class="glass">
 
-    <b>O problema não é investir.</b><br><br>
+A maioria dos investidores:
 
-    É investir sem entender:
+- Não entende o risco real  
+- Descobre problemas tarde demais  
+- Se perde em relatórios  
 
-    - O risco real do fundo  
-    - A qualidade da renda  
-    - O que está deteriorando  
+👉 E paga por isso com prejuízo
 
-    <br>
-    👉 E só perceber quando já caiu.
-
-    </div>
-    """, unsafe_allow_html=True)
-
-with col2:
-    st.markdown('<div class="img-hover">', unsafe_allow_html=True)
-    st.image("caindo_black.png", use_container_width=True)
-    st.markdown('</div>', unsafe_allow_html=True)
-
-st.markdown("👉 Isso custa dinheiro.")
+</div>
+""", unsafe_allow_html=True)
 
 st.divider()
 
 # ==========================
 # SOLUÇÃO
 # ==========================
-section_title(
-    "Clareza sobre seus FIIs em segundos",
-    "Sem relatórios longos. Sem achismo."
-)
-col1, col2 = st.columns(2)
-
-with col1:
-    st.markdown('<div class="image-card">', unsafe_allow_html=True)
-    st.image("carteira.png", use_container_width=True)
-    st.markdown('</div>', unsafe_allow_html=True)
-with col2:
-    st.markdown("""
-    <div class="box">
-
-    <b>O Refera resolve isso.</b><br><br>
-
-    Transformando tudo em um sistema simples:
-
-    ✅ Aprovado  
-    ⚠️ Atenção  
-    ❌ Deteriorando  
-
-    <br>
-    <b>Você entende em segundos o que antes levava horas.</b>
-
-    </div>
-    """, unsafe_allow_html=True)
-
-st.divider()
-
-# ==========================
-# OFERTA
-# ==========================
-section_title(
-    "Tudo que você precisa em um só lugar",
-    "Um sistema completo para analisar, entender e agir"
-)
+st.markdown('<div class="section-title">A solução</div>', unsafe_allow_html=True)
 
 st.markdown("""
-<div class="box">
+<div class="glass">
 
-<b>Você recebe acesso completo a:</b><br><br>
+O Refera transforma tudo em um sistema simples:
 
-📊 Score Refera (qualidade + risco)  
-🧠 Ranking dos FIIs  
-📄 Resumo de relatórios gerenciais  
-🔍 Análises individuais  
-📈 2 diagnósticos mensais da sua carteira  
-🧑‍🤝‍🧑 Comunidade exclusiva  
+✅ Aprovado  
+⚠️ Atenção  
+❌ Deteriorando  
+
+<b>Você entende em segundos.</b>
 
 </div>
 """, unsafe_allow_html=True)
@@ -308,182 +223,158 @@ st.markdown("""
 st.divider()
 
 # ==========================
-# PREÇO (NOVA SEÇÃO)
+# COMO FUNCIONA
 # ==========================
-section_title(
-    "Comece com acesso completo",
-    "Sem complicação. Sem compromisso longo."
-)
-col1, col2, col3 = st.columns([1,2,1])
-
-with col2:
-    st.markdown("""
-    <div class="section-title center-text">Comece agora</div>
-    """, unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="price-card">
-
-    <p style="color:#94a3b8; font-size:14px;">Plano de lançamento</p>
-
-    <p style="margin:10px 0;">
-        <span style="text-decoration: line-through; color:#64748b; font-size:18px;">
-            R$49,90
-        </span>
-    </p>
-
-    <p class="price">
-        R$19,90<span style="font-size:16px;">/mês</span>
-    </p>
-
-    <p style="color:#94a3b8;">Acesso completo à plataforma</p>
-
-    </div>
-    """, unsafe_allow_html=True)
-    
-st.markdown("""
-<div class="center-text">
-<span class="highlight">Menos de R$1 por dia para investir com mais segurança</span>
-</div>
-""", unsafe_allow_html=True)
-st.markdown("")
-
-if st.button("💰 Garantir acesso agora", use_container_width=True):
-    st.markdown(
-        f'<meta http-equiv="refresh" content="0; url={HOTMART_LINK}">',
-        unsafe_allow_html=True
-    )
-
-st.markdown("👉 Oferta de lançamento para os primeiros usuários")
-
-st.divider()
-
-# ==========================
-# DIFERENCIAL
-# ==========================
-st.markdown("""
-<div class="section-title">Uma nova forma de analisar FIIs</div>
-<div class="section-sub">Menos achismo. Mais estrutura.</div>
-""", unsafe_allow_html=True)
+st.markdown('<div class="section-title">Como funciona</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-sub">Simples, direto e sem esforço</div>', unsafe_allow_html=True)
 
 st.markdown("""
-<div class="grid">
+<div class="grid fade-in">
 
 <div class="glass">
-🧠 <b>Clareza</b><br><br>
-Entenda rapidamente o que está acontecendo
+<b>1. O modelo analisa</b><br>
+<small style="color:#94a3b8;">Dados e relatórios automaticamente</small>
 </div>
 
 <div class="glass">
-⚡ <b>Velocidade</b><br><br>
-Análise em segundos
+<b>2. Classifica os FIIs</b><br>
+<small style="color:#94a3b8;">Aprovado, atenção ou deteriorando</small>
 </div>
 
 <div class="glass">
-🛡️ <b>Segurança</b><br><br>
-Reduza erros e decisões impulsivas
+<b>3. Você entende rápido</b><br>
+<small style="color:#94a3b8;">Sem precisar estudar tudo</small>
 </div>
 
 </div>
 """, unsafe_allow_html=True)
+
 st.divider()
 
-#💻 SEÇÃO PRODUTO (cara de SaaS)
+# ==========================
+# POR QUE USAR
+# ==========================
+st.markdown('<div class="section-title">Sem isso, você está no escuro</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-sub">A maioria dos investidores descobre tarde demais</div>', unsafe_allow_html=True)
+
 st.markdown("""
-<div class="section-title">Tudo que você precisa</div>
-<div class="section-sub">Um sistema completo para sua tomada de decisão</div>
+<div class="grid fade-in">
+
+<div class="glass">
+❌ <b>Risco invisível</b><br>
+<small style="color:#94a3b8;">Problemas que você não vê</small>
+</div>
+
+<div class="glass">
+⚠️ <b>Decisão atrasada</b><br>
+<small style="color:#94a3b8;">Você reage depois da queda</small>
+</div>
+
+<div class="glass">
+💸 <b>Perda de dinheiro</b><br>
+<small style="color:#94a3b8;">Por falta de clareza</small>
+</div>
+
+</div>
 """, unsafe_allow_html=True)
+
+st.markdown("<br>", unsafe_allow_html=True)
+
+st.markdown("""
+<div class="grid fade-in">
+
+<div class="glass">
+✅ <b>Clareza imediata</b><br>
+<small style="color:#94a3b8;">Você entende o cenário</small>
+</div>
+
+<div class="glass">
+📊 <b>Mais controle</b><br>
+<small style="color:#94a3b8;">Sua carteira faz sentido</small>
+</div>
+
+<div class="glass">
+🧠 <b>Decisão melhor</b><br>
+<small style="color:#94a3b8;">Menos emoção, mais estrutura</small>
+</div>
+
+</div>
+""", unsafe_allow_html=True)
+
+st.divider()
+
+# ==========================
+# PRODUTO
+# ==========================
+st.markdown('<div class="section-title">O que você recebe</div>', unsafe_allow_html=True)
 
 st.markdown("""
 <div class="glass">
 
 📊 Score Refera  
-🧠 Ranking dos FIIs  
-📄 Resumos gerenciais  
+🧠 Ranking  
+📄 Resumos  
 📈 Diagnóstico da carteira  
 🧑‍🤝‍🧑 Comunidade  
 
 </div>
 """, unsafe_allow_html=True)
 
-col1, col2 = st.columns([1,1])
+# ==========================
+# VISUAL
+# ==========================
+col1, col2 = st.columns(2)
 
 with col1:
-    st.markdown("""
-    <div class="section-title">Visualize sua carteira</div>
-    <div class="section-sub">
-    Entenda risco, qualidade e concentração em um só lugar
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown('<div class="section-title">Visualize sua carteira</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-sub">Risco, qualidade e concentração em um só lugar</div>', unsafe_allow_html=True)
 
 with col2:
     st.markdown('<div class="image-card">', unsafe_allow_html=True)
     st.image("carteira.png", use_container_width=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
-st.markdown("""
-<div class="section-title">Como funciona</div>
-<div class="section-sub">Simples, rápido e direto ao ponto</div>
-""", unsafe_allow_html=True)
-
-st.markdown("""
-<div class="grid">
-
-<div class="glass">
-<b>1. Análise</b><br><br>
-O modelo processa dados e relatórios
-</div>
-
-<div class="glass">
-<b>2. Classificação</b><br><br>
-Cada FII recebe um status claro
-</div>
-
-<div class="glass">
-<b>3. Decisão</b><br><br>
-Você entende o cenário em segundos
-</div>
-
-</div>
-""", unsafe_allow_html=True)
-
-st.markdown("""
-<div class="section-title center-text">
-Usado por investidores que querem mais controle
-</div>
-""", unsafe_allow_html=True)
+st.divider()
 
 # ==========================
-# CTA FINAL
+# PREÇO
 # ==========================
-section_title(
-    "Pare de investir no escuro",
-    "Tenha clareza sobre seus FIIs hoje"
-)
+st.markdown('<div class="section-title center-text">Comece agora</div>', unsafe_allow_html=True)
+
 st.markdown("""
-<div class="highlight center-text">
-Pare de investir no escuro.
+<div class="price-card">
+
+<p style="color:#94a3b8;">Plano de lançamento</p>
+
+<p style="text-decoration: line-through; color:#64748b;">
+R$49,90
+</p>
+
+<p class="price">R$19,90<span style="font-size:16px;">/mês</span></p>
+
 </div>
 """, unsafe_allow_html=True)
 
-st.markdown("""
-<div class="center-text subtitle">
-Tenha clareza sobre seus FIIs hoje.
-</div>
-""", unsafe_allow_html=True)
-
-if st.button("🚀 Entrar no Refera", use_container_width=True):
-    st.markdown(
-        f'<meta http-equiv="refresh" content="0; url={HOTMART_LINK}">',
-        unsafe_allow_html=True
-    )
+st.write('')
+if st.button("💰 Garantir acesso", use_container_width=True):
+    st.markdown(f'<meta http-equiv="refresh" content="0; url={HOTMART_LINK}">', unsafe_allow_html=True)
 
 st.divider()
 
 # ==========================
+# CTA FINAL
+# ==========================
+st.markdown("""
+<div style="text-align:center;">
+<div class="section-title">Pare de investir no escuro</div>
+<div class="section-sub">Tenha clareza sobre seus FIIs hoje</div>
+</div>
+""", unsafe_allow_html=True)
+
+if st.button("🚀 Entrar no Refera", use_container_width=True):
+    st.markdown(f'<meta http-equiv="refresh" content="0; url={HOTMART_LINK}">', unsafe_allow_html=True)
+
+# ==========================
 # DISCLAIMER
 # ==========================
-st.caption("""
-O Refera não realiza recomendações de investimento.
-A ferramenta organiza informações para apoiar decisões.
-""")
+st.caption("O Refera não faz recomendação de investimento.")
