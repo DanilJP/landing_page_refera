@@ -161,8 +161,8 @@ with col1:
     """, unsafe_allow_html=True)
 
     st.write('')
-    if st.button("🚀 Começar agora", use_container_width=True):
-        st.markdown(f'<meta http-equiv="refresh" content="0; url={HOTMART_LINK}">', unsafe_allow_html=True)
+    if st.button("🚀 Quero entender melhor o Refera", use_container_width=True):
+        st.markdown(f'<meta http-equiv="refresh" content="0; url={'https://wa.me/5513981832920?text=Fala,%20vi%20o%20Refera%20e%20quero%20entender%20melhor%20como%20funciona'}">', unsafe_allow_html=True)
 
 with col2:
     st.markdown('<div class="image-card">', unsafe_allow_html=True)
@@ -356,8 +356,8 @@ R$49,90
 """, unsafe_allow_html=True)
 
 st.write('')
-if st.button("💰 Garantir acesso", use_container_width=True):
-    st.markdown(f'<meta http-equiv="refresh" content="0; url={HOTMART_LINK}">', unsafe_allow_html=True)
+if st.button("💰 Quero acesso ao Refera", use_container_width=True):
+    st.markdown(f'<meta http-equiv="refresh" content="0; url={'https://wa.me/5513981832920?text=Quero%20acesso%20ao%20Refera%20e%20entender%20como%20funciona%20na%20pr%C3%A1tica'}">', unsafe_allow_html=True)
 
 st.divider()
 
@@ -371,8 +371,8 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-if st.button("🚀 Entrar no Refera", use_container_width=True):
-    st.markdown(f'<meta http-equiv="refresh" content="0; url={HOTMART_LINK}">', unsafe_allow_html=True)
+if st.button("🚀 Quero entender melhor o Refera", use_container_width=True):
+    st.markdown(f'<meta http-equiv="refresh" content="0; url={'https://wa.me/5513981832920?text=Fala,%20vi%20o%20Refera%20e%20quero%20entender%20melhor%20como%20funciona'}">', unsafe_allow_html=True)
 
 # ==========================
 # DISCLAIMER
