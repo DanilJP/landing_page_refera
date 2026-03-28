@@ -31,13 +31,13 @@ header[data-testid="stHeader"] {
 
 /* ────────── HERO ────────── */
 .hero-title {
-    font-family: 'Clash Display', sans-serif;
-    font-size: 64px;
-    font-weight: 800;          /* ESSENCIAL */
-    line-height: 1.0;          /* mais colado = mais impacto */
-    letter-spacing: -2px;      /* dá efeito de “letrona” */
-    color: #f8fafc;
-    max-width: 800px;
+    font-family: 'Syne', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #f1f5f9;
+    letter-spacing: -0.8px;
+    line-height: 1.15;
+    margin: 0 0 8px 0;
 }
 
 @media (max-width: 768px) {
@@ -522,12 +522,6 @@ with col1:
 
     st.markdown('<div class="social-proof">Usado por investidores que querem mais controle e menos achismo</div>', unsafe_allow_html=True)
 
-# with col2:
-#     st.markdown('<div class="image-card">', unsafe_allow_html=True)
-#     st.image("fii.png", use_container_width=True)
-#     st.markdown('</div>', unsafe_allow_html=True)
-
-st.divider()
 
 # ==========================
 # PROBLEMA + SOLUÇÃO (lado a lado)
