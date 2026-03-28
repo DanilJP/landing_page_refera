@@ -514,7 +514,7 @@ with col1:
     st.write('')
 
     st.markdown("""
-    <a class="cta-btn" href="https://wa.me/5513981832920?text=Fala,%20vi%20o%20Refera%20e%20quero%20saber%20mais%20sobre%20como%20funciona" target="_blank">
+    <a class="cta-btn" href="https://wa.me/5513981832920?text=Ol%C3%A1,%20conheci%20o%20Refera%20e%20gostaria%20de%20solicitar%20acesso%20para%20conhecer%20melhor%20a%20plataforma%20e%20suas%20an%C3%A1lises%20%F0%9F%93%8A" target="_blank">
         🚀 Quero entender melhor o Refera
     </a>
     """, unsafe_allow_html=True)
@@ -762,7 +762,7 @@ st.markdown("""
 st.write('')
 
 st.markdown("""
-<a class="cta-btn" href="https://wa.me/5513981832920?text=Fala,%20vi%20o%20Refera%20e%20quero%20ter%20acesso%20ao%20Refera" target="_blank">
+<a class="cta-btn" href="https://wa.me/5513981832920?text=Ol%C3%A1,%20conheci%20o%20Refera%20e%20gostaria%20de%20solicitar%20acesso%20para%20avaliar%20a%20plataforma%20e%20seus%20insights%20%F0%9F%93%8A" target="_blank">
     💰 Quero acesso ao Refera
 </a>
 """, unsafe_allow_html=True)
@@ -782,7 +782,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown("""
-<a class="cta-btn" href="https://wa.me/5513981832920?text=Fala,%20vi%20o%20Refera%20e%20quero%20ter%20acesso%20ao%20Refera" target="_blank">
+<a class="cta-btn" href="https://wa.me/5513981832920?text=Ol%C3%A1,%20conheci%20o%20Refera%20e%20gostaria%20de%20solicitar%20acesso%20para%20conhecer%20melhor%20a%20plataforma%20e%20suas%20an%C3%A1lises%20%F0%9F%93%8A" target="_blank">
     🚀 Quero começar agora
 </a>
 """, unsafe_allow_html=True)
