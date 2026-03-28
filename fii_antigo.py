@@ -31,12 +31,13 @@ header[data-testid="stHeader"] {
 
 /* ────────── HERO ────────── */
 .hero-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 52px;
-    font-weight: 800;
-    line-height: 1.05;
+    font-family: 'Clash Display', sans-serif;
+    font-size: 64px;
+    font-weight: 800;          /* ESSENCIAL */
+    line-height: 1.0;          /* mais colado = mais impacto */
+    letter-spacing: -2px;      /* dá efeito de “letrona” */
     color: #f8fafc;
-    letter-spacing: -1.5px;
+    max-width: 800px;
 }
 
 @media (max-width: 768px) {
@@ -521,10 +522,10 @@ with col1:
 
     st.markdown('<div class="social-proof">Usado por investidores que querem mais controle e menos achismo</div>', unsafe_allow_html=True)
 
-with col2:
-    st.markdown('<div class="image-card">', unsafe_allow_html=True)
-    st.image("fii.png", use_container_width=True)
-    st.markdown('</div>', unsafe_allow_html=True)
+# with col2:
+#     st.markdown('<div class="image-card">', unsafe_allow_html=True)
+#     st.image("fii.png", use_container_width=True)
+#     st.markdown('</div>', unsafe_allow_html=True)
 
 st.divider()
 
@@ -750,7 +751,7 @@ st.markdown("""
         <div class="price-badge">Plano de Lançamento</div>
         <div class="price-old">De R$49,90/mês</div>
         <div>
-            <span class="price-amount">R$19<span style="font-size:36px;">,90</span></span>
+            <span class="price-amount">R$19<span style="font-size:30px;">,90</span></span>
             <span class="price-period">/mês</span>
         </div>
         <div class="price-savings">🎉 Você economiza R$30 por mês</div>
