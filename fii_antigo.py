@@ -523,6 +523,16 @@ with col1:
     st.markdown('<div class="social-proof">Usado por investidores que querem mais controle e menos achismo</div>', unsafe_allow_html=True)
 
 
+st.markdown("""
+<div style="margin-top:20px; margin-bottom:10px; font-size:16px; color:#94a3b8;">
+Entenda em poucos segundos o que seus FIIs realmente escondem
+</div>
+""", unsafe_allow_html=True)
+video_file = open("video_introducao.mp4", "rb")
+video_bytes = video_file.read()
+
+st.video(video_bytes)
+
 # ==========================
 # PROBLEMA + SOLUÇÃO (lado a lado)
 # ==========================
